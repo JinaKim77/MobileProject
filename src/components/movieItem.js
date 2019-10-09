@@ -7,8 +7,8 @@ class MovieItem extends React.Component {
         return (
             <div>
                 {/* <h4> {this.props.movie.Title}  </h4>
-          <h4> {this.props.movie.Year}  </h4>
-    <img src={this.props.movie.Poster}></img>*/}
+                    <h4> {this.props.movie.Year}  </h4>
+                    <img src={this.props.movie.Poster}></img>*/}
 
                 <Card border="dark" bg="warning" style={{ width: '25rem', height: '50rem' }}>
                     <Card.Img variant="top" src={this.props.movie.Poster} />
