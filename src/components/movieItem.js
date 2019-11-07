@@ -1,23 +1,51 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class MovieItem extends React.Component {
+
+    constructor() {
+
+        super();
+
+        this.DeleteMovie = this.DeleteMovie.bind(this);
+
+    }
+    DeleteMovie(e) {
+
+        console.log("Delete Clicked");
+        axios.delete("http://localhost:4000/api/movies/" + this.props.movie._id)
+            .then()
+            .catch();
+
+
+
+    }
+
 
     render() {
         return (
             <div>
-                {/* <h4> {this.props.movie.Title}  </h4>
-                    <h4> {this.props.movie.Year}  </h4>
-                    <img src={this.props.movie.Poster}></img>*/}
+                {/* <h4>{this.props.movie.Title}</h4>
+                <p>{this.props.movie.Year}</p>
+                <img src={this.props.movie.Poster}></img> */}
 
-                <Card border="dark" bg="warning" style={{ width: '25rem', height: '50rem' }}>
-                    <Card.Img variant="top" src={this.props.movie.poster} />
+
+                <Card border="primary" style={{ width: '28rem' }}>
+                    <Card.Header>{this.props.movie.title}</Card.Header>
                     <Card.Body>
-                        <Card.Title>{this.props.movie.title}</Card.Title>
-                        <Card.Text>
-                            {this.props.movie.year}
-                        </Card.Text>
+                        <blockquote className="blockquote mb-0">
+                            <img src={this.props.movie.poster}></img>
+                            <footer>
+                                {this.props.movie.year}
+                            </footer>
+                        </blockquote>
                     </Card.Body>
+                    <Button variants="danger" onClick={this.DeleteMovie}> Delete</Button>
+                    <br></br>
+                    <Link to={"/edit"} className="btn btn-primary">Edit</Link>
                 </Card>
             </div>
         );

@@ -85,6 +85,15 @@ app.get('/name', (req,res)=>{
     res.send('welcome'+req.query.firstname+' '+req.query.lastname);
 })
 
+app.delete('/api/movies/:id', (req, res)=>{
+    console.log(req.params.id);
+
+    MoiveModel.deleteOne({_id: req.params.id},
+        (error,data)=>{
+            res.json(data);
+        })
+})
+
 app.post('/api/movies', (req,res)=>{
     console.log(req.body);
     console.log(req.body.title);

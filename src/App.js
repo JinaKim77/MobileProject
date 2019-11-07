@@ -11,6 +11,7 @@ import {Switch,Route,BrowserRouter} from 'react-router-dom';
 import { Certificate } from 'crypto';
 import Create from './components/create';
 import Read from './components/read';
+import Edit from './components/edit';
 
 class App extends React.Component {
 
@@ -30,7 +31,7 @@ class App extends React.Component {
             <Route exact path="/" component={Header} />
             <Route path="/create" component={Create} />
             <Route path="/read" component={Read} />
-
+            <Route path='/edit' component={Edit} />
           </Switch>
         </div>
       </BrowserRouter>
